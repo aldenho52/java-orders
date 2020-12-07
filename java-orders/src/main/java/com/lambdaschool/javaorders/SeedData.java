@@ -11,6 +11,7 @@ import com.lambdaschool.javaorders.repositories.OrdersRepository;
 import com.lambdaschool.javaorders.repositories.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
@@ -19,7 +20,7 @@ import java.util.Random;
 import java.util.Set;
 
 @Transactional
-//@Component
+@Component
 public class SeedData
     implements CommandLineRunner
 {
@@ -554,6 +555,7 @@ public class SeedData
         //Begins the faker data
 
         Faker dataFaker = new Faker(new Locale("en-US"));
+
         Set<String> customerNames = new HashSet<>();
         for (int i = 0; i < 100; i++)
         {
@@ -563,6 +565,7 @@ public class SeedData
 
         for (String theName : customerNames)
         {
+
             String custcity = dataFaker.address()
                 .city();
             String tempWorkingarea = dataFaker.address()
